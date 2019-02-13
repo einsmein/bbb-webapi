@@ -1,4 +1,4 @@
-
+import logging
 import collections
 import mxnet as mx
 import numpy as np
@@ -7,12 +7,14 @@ from mxnet import nd, autograd
 class BayesByBackprop:
 
 	def __init__(self, seed):
+		logging.basicConfig(filename="logs/{}.log".format(type(self).__name__), level=logging.DEBUG)
+		logging.info("seed={}".format(seed))
 
 		self.config = {
 			"num_hidden_layers": 2,
 			"num_hidden_units": 400,
 			"batch_size": 128,
-			"epochs": 1,
+			"epochs": 10,
 			"learning_rate": 0.001,
 			"num_samples": 1,
 			"pi": 0.25,
@@ -27,6 +29,8 @@ class BayesByBackprop:
 		mx.random.seed(seed)
 		np.random.seed(seed)
 
+		self.num_inputs = None
+		self.num_outputs = None
 		self.layer_param_shapes = []
 		self.mus = []
 		self.rhos = []
@@ -46,6 +50,8 @@ class BayesByBackprop:
 			num_outputs : int
 				Number of nodes in output layer
 		"""
+		self.num_inputs = num_inputs
+		self.num_outputs = num_outputs
 
 		num_hidden = self.config['num_hidden_units']
 		num_layers = self.config['num_hidden_layers']
@@ -104,7 +110,10 @@ class BayesByBackprop:
 			X : mxnet.ndarray
 			    An input vector
 		"""
-		return BayesByBackprop.net(X, self.mus)
+		X = X.as_in_context(self.ctx).reshape((-1, self.num_inputs))
+		output = BayesByBackprop.net(X, self.mus)
+		predictions = nd.argmax(output, axis=1)
+		return predictions
 
 
 
@@ -152,14 +161,6 @@ class BayesByBackprop:
 
 
 
-	######################################
-	###          Optimization          ###
-	######################################
-
-	# Stochastic Gradient Descent
-	def SGD(params, lr):
-		for param in params:
-			param[:] = param - lr * param.grad
 
 
 	######################################
@@ -170,7 +171,7 @@ class BayesByBackprop:
 		numerator = 0.
 		denominator = 0.
 		for i, (data, label) in enumerate(data_iterator):
-			data = data.as_in_context(self.ctx).reshape((-1, 784))
+			data = data.as_in_context(self.ctx).reshape((-1, self.num_inputs))
 			label = label.as_in_context(self.ctx)
 			# output = BayesByBackprop.net(data, layer_params)
 			output = self.predict(data)
@@ -225,13 +226,22 @@ class BayesByBackprop:
 			return epsilons
 
 		def transform_rhos(rhos):
+			""" Apply softmax on rhos to get sigmas """
 			return [nd.log(1. + nd.exp(rho)) for rho in rhos]
 
 		def transform_gaussian_samples(mus, sigmas, epsilons):
+			""" w = mu + sigma o epsilons"""
 			samples = []
 			for j in range(len(mus)):
 				samples.append(mus[j] + sigmas[j] * epsilons[j])
 			return samples
+
+		def SGD(params, lr):
+			"""
+				Stochastic Gradient Descent
+			"""
+			for param in params:
+				param[:] = param - lr * param.grad
 
 
 		# 3. Complete training loop
@@ -245,7 +255,7 @@ class BayesByBackprop:
 		for e in range(epochs):
 			for i, (data, label) in enumerate(train_data):
 
-				data = data.as_in_context(self.ctx).reshape((-1, 784))
+				data = data.as_in_context(self.ctx).reshape((-1, self.num_inputs))
 				label = label.as_in_context(self.ctx)
 				label_one_hot = nd.one_hot(label, 10)
 
@@ -270,7 +280,7 @@ class BayesByBackprop:
 				loss.backward()
 
 				# apply stochastic gradient descent to variational parameters
-				BayesByBackprop.SGD(variational_params, learning_rate)
+				SGD(variational_params, learning_rate)
 
 				# calculate moving loss for monitoring convergence
 				curr_loss = nd.mean(loss).asscalar()
@@ -283,6 +293,9 @@ class BayesByBackprop:
 			train_acc.append(np.asscalar(train_accuracy))
 			test_acc.append(np.asscalar(test_accuracy))
 			print("Epoch %s. Loss: %s, Train_acc %s, Test_acc %s" %
+				  (e, moving_loss, train_accuracy, test_accuracy))
+
+			logging.info("Epoch %s. Loss: %s, Train_acc %s, Test_acc %s" %
 				  (e, moving_loss, train_accuracy, test_accuracy))
 
 

@@ -1,4 +1,4 @@
-
+import logging
 import collections
 import mxnet as mx
 import numpy as np
@@ -18,7 +18,7 @@ class BBBModel:
 					
 		"""
 		# self.model = None
-		pass
+		logging.basicConfig(filename="logs/{}.log".format(type(self).__name__), level=logging.DEBUG)
 
 	def train_MNIST(self, seed, model_path):
 
@@ -53,18 +53,22 @@ class BBBModel:
 		"""
 			input_data : mx.nd.array
 		"""
-		model = unpickle_model(model_path)
-		output = model.predict(input_data)	# mxnet ndarray of size (#input_data, output_nodes) or (output_nodes,) iff #input_data = 1
-		idx = output.asnumpy().tolist().index(1)
-		return idx
+		try:
+			model = self.unpickle_model(model_path)
+			prediction = model.predict(input_data)	# mxnet ndarray of size (#input_data, output_nodes) or (output_nodes,) iff #input_data = 1
+			logging.debug("prediction: \n", prediction)
+			return prediction
+
+		except FileNotFoundError:
+			return "Model has not been trained"
 
 
 	def pickle_model(self, model, path):
 		""" 
 			Saves the trained classifier
 		"""
-		with open(path, 'wb') as f:
-			pickle.dump(self.model, f)
+		with open(path, 'w+b') as f:
+			pickle.dump(model, f)
 			print("Pickled model at {}".format(path))
 
 
@@ -75,4 +79,5 @@ class BBBModel:
 		with open(model_path, 'rb') as f:
 			model = pickle.load(f)
 		return model
+
 

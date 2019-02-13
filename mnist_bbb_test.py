@@ -1,4 +1,3 @@
-
 import mxnet as mx
 import numpy as np
 from BayesByBackprop import BayesByBackprop
@@ -29,12 +28,12 @@ num_outputs = 10
 # BBBModel test
 ################
 
-model_db_path = "/db_models"
+model_db_path = "./db_models"
 model_id = 0
-model_path = "{}/{}.pkl".format(model_db_path, model_id)
+model_path = "{}/m{}.pkl".format(model_db_path, model_id)
 
 model = BBBModel()
-model.train_MNIST(seed=model_id, model_path=model_path)
+# model.train_MNIST(seed=model_id, model_path=model_path)
 
 sample_idx = 0
 sample_train = train_dataset[sample_idx]
