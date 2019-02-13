@@ -56,7 +56,6 @@ class BBBModel:
 		try:
 			model = self.unpickle_model(model_path)
 			prediction = model.predict(input_data)	# mxnet ndarray of size (#input_data, output_nodes) or (output_nodes,) iff #input_data = 1
-			logging.debug("prediction: \n", prediction)
 			return prediction
 
 		except FileNotFoundError:

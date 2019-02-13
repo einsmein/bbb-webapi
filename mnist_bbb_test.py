@@ -45,4 +45,4 @@ sample_test_label = sample_test[1]
 
 output = model.predict(sample_test_data, model_path)
 print("label: ", sample_test_label)
-print("output: ", output)
+print("output: ", output[sample_idx].asscalar())
