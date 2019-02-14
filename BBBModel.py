@@ -8,38 +8,7 @@ from BayesByBackprop import BayesByBackprop
 import pickle
 
 
-
-# class BBBModel:
-
-	# def __init__(self):
-#		"""
-#			Attributes
-#			model:	BayesByBackprop class instance
-#					
-#		"""
-		# self.model = None
-
-
-
 logging.basicConfig(filename="logs/{}.log".format(__name__), level=logging.DEBUG)
-
-def train_MNIST(seed, model_path):
-
-	model = BayesByBackprop(seed)
-
-	def transform(data, label):
-		return data.astype(np.float32)/126.0, label.astype(np.float32)
-
-	train_dataset = mx.gluon.data.vision.MNIST(train=True, transform=transform)
-	test_dataset = mx.gluon.data.vision.MNIST(train=False, transform=transform)
-
-	num_inputs = 784
-	num_outputs = 10
-
-	model.define_model(num_inputs, num_outputs)
-	model.train(train_dataset, test_dataset)
-
-	pickle_model(model, model_path)
 
 
 def train(train_dataset, test_dataset, num_inputs, num_outputs, seed, model_path):

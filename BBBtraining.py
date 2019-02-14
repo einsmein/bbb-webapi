@@ -75,7 +75,6 @@ for i in range(num_layers + 1):
         W_shape = (num_hidden, num_hidden)
         b_shape = (num_hidden, )
     layer_param_shapes.extend([W_shape, b_shape])
-print(layer_param_shapes)
 
 # Compute output of NN
 # dot correct???
@@ -142,6 +141,8 @@ def evaluate_accuracy(data_iterator, net, layer_params):
     numerator = 0.
     denominator = 0.
     for i, (data, label) in enumerate(data_iterator):
+        if i == 5:
+            break
         data = data.as_in_context(ctx).reshape((-1, 784))
         label = label.as_in_context(ctx)
         output = net(data, layer_params)
@@ -149,8 +150,6 @@ def evaluate_accuracy(data_iterator, net, layer_params):
         numerator += nd.sum(predictions == label)
         denominator += data.shape[0]
     return (numerator / denominator).asscalar()
-
-
 
 
 
@@ -207,6 +206,9 @@ def train():
 
     for e in range(epochs):
         for i, (data, label) in enumerate(train_data):
+            print(data.shape, label.shape)
+            if i == 5:
+                break
             data = data.as_in_context(ctx).reshape((-1, 784))
             label = label.as_in_context(ctx)
             label_one_hot = nd.one_hot(label, 10)
@@ -253,3 +255,5 @@ def train():
     # plt.plot(test_acc)
     # plt.show()
 
+
+train()

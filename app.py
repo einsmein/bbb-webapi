@@ -37,7 +37,7 @@ def train(model_id):
 
 	num_inputs = 784
 	num_outputs = 10
-	model.train(self, train_dataset, test_dataset, num_inputs, num_outputs, seed, model_path)
+	model.train(train_dataset, test_dataset, num_inputs, num_outputs, model_id, model_path)
 
 	return "Done"
 

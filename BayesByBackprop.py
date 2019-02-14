@@ -6,21 +6,16 @@ from mxnet import nd, autograd
 
 class BayesByBackprop:
 
-	def __init__(self, seed):
-		logging.basicConfig(filename="logs/{}.log".format(type(self).__name__), level=logging.DEBUG)
+	def __init__(self, seed, num_hidden_layes=2, num_hidden_units=400, batch_size=128, epochs=1, learning_rate=0.001, sigma_p=1.0):
 		logging.debug("BayesByBackprop instance created with seed = {}".format(seed))
 
 		self.config = {
 			"num_hidden_layers": 2,
 			"num_hidden_units": 400,
 			"batch_size": 128,
-			"epochs": 10,
+			"epochs": 1,
 			"learning_rate": 0.001,
-			"num_samples": 1,
-			"pi": 0.25,
 			"sigma_p": 1.0,
-			"sigma_p1": 0.75,
-			"sigma_p2": 0.1,
 		}
 
 
@@ -171,15 +166,14 @@ class BayesByBackprop:
 		numerator = 0.
 		denominator = 0.
 		for i, (data, label) in enumerate(data_iterator):
-			data = data.as_in_context(self.ctx).reshape((-1, self.num_inputs))
+			if i == 5:
+				break
+			data = data.as_in_context(self.ctx).reshape((-1, 784))
 			label = label.as_in_context(self.ctx)
-			# output = BayesByBackprop.net(data, layer_params)
-			output = self.predict(data)
-			predictions = nd.argmax(output, axis=1)
+			predictions = self.predict(data)
 			numerator += nd.sum(predictions == label)
 			denominator += data.shape[0]
 		return (numerator / denominator).asscalar()
-
 
 	######################################
 	###         Main Execution         ###
@@ -193,7 +187,6 @@ class BayesByBackprop:
 			test_dataset: mxnet.gluon.data.dataset
 						e.g. mx.gluon.data.vision.MNIST(train=False, transform=transform)
 		"""
-
 		batch_size = self.config['batch_size']
 
 		train_data = mx.gluon.data.DataLoader(train_dataset, batch_size, shuffle=True)
@@ -254,7 +247,8 @@ class BayesByBackprop:
 
 		for e in range(epochs):
 			for i, (data, label) in enumerate(train_data):
-
+				if i == 5:
+					break
 				data = data.as_in_context(self.ctx).reshape((-1, self.num_inputs))
 				label = label.as_in_context(self.ctx)
 				label_one_hot = nd.one_hot(label, 10)
