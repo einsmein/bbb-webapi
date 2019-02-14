@@ -8,7 +8,7 @@ class BayesByBackprop:
 
 	def __init__(self, seed):
 		logging.basicConfig(filename="logs/{}.log".format(type(self).__name__), level=logging.DEBUG)
-		logging.info("seed={}".format(seed))
+		logging.debug("BayesByBackprop instance created with seed = {}".format(seed))
 
 		self.config = {
 			"num_hidden_layers": 2,
