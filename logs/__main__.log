@@ -1,0 +1,167 @@
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\BayesByBackprop.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\BayesByBackprop.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:32:27] "GET /bbb/predict/0 HTTP/1.1" 404 -
+DEBUG:root:BayesByBackprop instance created with seed = 1
+INFO:root:Epoch 0. Loss: 3284.7992886991447, Train_acc 0.5390625, Test_acc 0.5171875
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:32:54] "GET /bbb/train/1 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\BayesByBackprop.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:33:26] "GET /bbb/predict/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:41:18] "GET /bbb/predict/3 HTTP/1.1" 404 -
+DEBUG:root:BayesByBackprop instance created with seed = 3
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG:root:BayesByBackprop instance created with seed = 3
+DEBUG:root:BayesByBackprop instance created with seed = 0
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:55:39] "GET /bbb/predict/1 HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:55:39] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:55:39] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:55:39] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:55:40] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:55:40] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:55:40] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:56:00] "GET /bbb/train/0 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:57:53] "GET /bbb/predict/1 HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:57:53] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:57:53] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:57:53] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:57:53] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:57:53] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:57:53] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:58:20] "GET /bbb/predict/1 HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:58:21] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:58:21] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:58:21] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:58:21] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:58:21] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:58:21] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:58:52] "GET /bbb/predict/1 HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:58:52] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:58:52] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:58:53] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:58:53] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:58:53] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:59:36] "GET /bbb/predict/1 HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:59:36] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:59:36] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:59:36] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:59:37] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2019 23:59:37] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:00:55] "GET /bbb/predict/1 HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:00:55] "GET /bbb/predict/1 HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:00:55] "GET /bbb/predict/1 HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:00:55] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:00:56] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:00:56] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:00:56] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:00:56] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:00:56] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:01:28] "GET /bbb/predict/1 HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:01:28] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:01:28] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:01:28] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:01:29] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:01:29] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:01:29] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:02:02] "GET /bbb/predict/1 HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:02:02] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:02:02] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:02:03] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:02:03] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:02:03] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:02:03] "GET /bbb/predict/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 227-788-697
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [15/Feb/2019 00:02:21] "GET /bbb/predict/1 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\Dev\\bbb-webservice\\webapi\\app.py', reloading

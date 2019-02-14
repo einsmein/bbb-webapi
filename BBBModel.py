@@ -8,11 +8,9 @@ from BayesByBackprop import BayesByBackprop
 import pickle
 
 
-logging.basicConfig(filename="logs/{}.log".format(__name__), level=logging.DEBUG)
-
 
 def train(train_dataset, test_dataset, num_inputs, num_outputs, seed, model_path):
-	model = BayesByBackprop(seed)
+	model = BayesByBackprop(seed, epochs=seed)
 
 	model.define_model(num_inputs, num_outputs)
 	model.train(train_dataset, test_dataset)

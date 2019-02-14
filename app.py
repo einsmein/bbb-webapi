@@ -1,6 +1,8 @@
 #!Scripts\python
 from flask import Flask, make_response, json, request, jsonify
 import BBBModel as model
+from random import randint
+import logging
 
 app = Flask(__name__)
 
@@ -8,14 +10,19 @@ model_db_path = "./db_models"
 # model = BBBModel()
 
 
+logging.basicConfig(filename="logs/{}.log".format(__name__), level=logging.DEBUG)
+
 ##################
 # demo dataset
 import mxnet as mx
 import numpy as np
+
 def transform(data, label):
 	return data.astype(np.float32)/126.0, label.astype(np.float32)
 train_dataset = mx.gluon.data.vision.MNIST(train=True, transform=transform)
 test_dataset = mx.gluon.data.vision.MNIST(train=False, transform=transform)
+num_inputs = 784
+num_outputs = 10
 ##################
 
 
@@ -33,13 +40,8 @@ def train(model_id):
 	"""	
 
 	model_path = "{}/m{}.pkl".format(model_db_path, model_id)
-	# model.train_MNIST(seed=model_id, model_path=model_path)
-
-	num_inputs = 784
-	num_outputs = 10
 	model.train(train_dataset, test_dataset, num_inputs, num_outputs, model_id, model_path)
-
-	return "Done"
+	return make_response(jsonify({"status": "Model created and trained"}), 200)
 
 
 
@@ -55,13 +57,20 @@ def mock_predict(model_id):
 	model_path = "{}/m{}.pkl".format(model_db_path, model_id)
 
 
-
 	##################
 	# demo predict input
-	sample_idx = 0
-	sample_test = test_dataset[sample_idx]
-	sample_test_data = mx.nd.expand_dims(sample_test[0], axis = 0)	# ndarray [[data1] [data2] ...]
-	sample_test_label = mx.nd.array([sample_test[1]])				# ndarray [label1 label2 ... ]
+	# sample_test_data = mx.nd.array([])
+	# sample_test_label = mx.nd.array([])
+	for i in range(10):
+		sample_idx = randint(0,len(test_dataset)-1)
+		sample_test = test_dataset[sample_idx]
+
+		if i == 0:
+			sample_test_data = mx.nd.expand_dims(sample_test[0], axis = 0)	# ndarray [[data1] [data2] ...]
+			sample_test_label = mx.nd.array([sample_test[1]])				# ndarray [label1 label2 ... ]
+		else:
+			sample_test_data = mx.nd.concat(sample_test_data, mx.nd.expand_dims(sample_test[0], axis = 0))	# ndarray [[data1] [data2] ...]
+			sample_test_label = mx.nd.concat(sample_test_label, mx.nd.array([sample_test[1]]), dim = 0)				# ndarray [label1 label2 ... ]
 	##################
 
 	try: 
