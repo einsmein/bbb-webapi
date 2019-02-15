@@ -9,8 +9,8 @@ import pickle
 
 
 
-def train(train_dataset, test_dataset, num_inputs, num_outputs, seed, model_path):
-	model = BayesByBackprop(seed, epochs=seed)
+def train(seed, model_path, train_dataset, test_dataset, num_inputs, num_outputs, num_hidden_layers, num_hidden_units, batch_size, epochs, learning_rate, sigma_p):
+	model = BayesByBackprop(seed, num_hidden_layers, num_hidden_units, batch_size, epochs, learning_rate, sigma_p)
 
 	model.define_model(num_inputs, num_outputs)
 	model.train(train_dataset, test_dataset)
@@ -20,13 +20,9 @@ def train(train_dataset, test_dataset, num_inputs, num_outputs, seed, model_path
 
 
 def predict(input_data, model_path):
-	"""
-		input_data : mx.nd.array
-	"""
 	try:
 		model = unpickle_model(model_path)
 		prediction = model.predict(input_data)	# mxnet ndarray of size (#input_data, output_nodes) or (output_nodes,) iff #input_data = 1
-
 		return prediction
 
 	except FileNotFoundError:
@@ -36,7 +32,7 @@ def predict(input_data, model_path):
 
 def pickle_model(model, path):
 	""" 
-		Saves the trained classifier
+	Saves the trained classifier
 	"""
 	with open(path, 'w+b') as f:
 		pickle.dump(model, f)
@@ -45,7 +41,7 @@ def pickle_model(model, path):
 
 def unpickle_model(model_path):
 	"""
-		Load the trained classifier
+	Load the trained classifier
 	"""
 	with open(model_path, 'rb') as f:
 		model = pickle.load(f)

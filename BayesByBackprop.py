@@ -4,10 +4,12 @@ import mxnet as mx
 import numpy as np
 from mxnet import nd, autograd
 
+log = logging.getLogger(__name__)
+
 class BayesByBackprop:
 
-	def __init__(self, seed, num_hidden_layers=2, num_hidden_units=400, batch_size=128, epochs=10, learning_rate=0.001, sigma_p=1.0):
-		logging.debug("BayesByBackprop instance created with seed = {}".format(seed))
+	def __init__(self, seed, num_hidden_layers, num_hidden_units, batch_size, epochs, learning_rate, sigma_p):
+		log.debug("BayesByBackprop instance created with seed = {}".format(seed))
 
 		self.config = {
 			"num_hidden_layers": num_hidden_layers,
@@ -166,6 +168,8 @@ class BayesByBackprop:
 		numerator = 0.
 		denominator = 0.
 		for i, (data, label) in enumerate(data_iterator):
+			if i == 10:
+				break
 			data = data.as_in_context(self.ctx).reshape((-1, 784))
 			label = label.as_in_context(self.ctx)
 			predictions = self.predict(data)
@@ -247,6 +251,8 @@ class BayesByBackprop:
 
 		for e in range(epochs):
 			for i, (data, label) in enumerate(train_data):
+				if i == 10:
+					break
 				data = data.as_in_context(self.ctx).reshape((-1, self.num_inputs))
 				label = label.as_in_context(self.ctx)
 				label_one_hot = nd.one_hot(label, 10)
@@ -287,5 +293,5 @@ class BayesByBackprop:
 			print("Epoch %s. Loss: %s, Train_acc %s, Test_acc %s" %
 				  (e, moving_loss, train_accuracy, test_accuracy))
 
-			logging.info("Epoch %s. Loss: %s, Train_acc %s, Test_acc %s" %
+			log.info("Epoch %s. Loss: %s, Train_acc %s, Test_acc %s" %
 				  (e, moving_loss, train_accuracy, test_accuracy))
