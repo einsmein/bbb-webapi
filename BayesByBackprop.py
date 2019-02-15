@@ -168,7 +168,7 @@ class BayesByBackprop:
 		numerator = 0.
 		denominator = 0.
 		for i, (data, label) in enumerate(data_iterator):
-			if i == 10:
+			if i == 1000:
 				break
 			data = data.as_in_context(self.ctx).reshape((-1, 784))
 			label = label.as_in_context(self.ctx)
@@ -251,7 +251,7 @@ class BayesByBackprop:
 
 		for e in range(epochs):
 			for i, (data, label) in enumerate(train_data):
-				if i == 10:
+				if i == 1000:
 					break
 				data = data.as_in_context(self.ctx).reshape((-1, self.num_inputs))
 				label = label.as_in_context(self.ctx)

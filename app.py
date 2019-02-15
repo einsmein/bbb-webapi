@@ -42,7 +42,7 @@ def train(model_id):
 	model_path = "{}/m{}.pkl".format(model_db_path, model_id)
 	model.train(model_id, model_path, train_dataset, test_dataset, num_inputs, num_outputs,
 			num_hidden_layers=2, num_hidden_units=400, 
-			batch_size=128, epochs=1, 
+			batch_size=128, epochs=model_id, 
 			learning_rate=0.001, sigma_p=1.0)
 	return make_response(jsonify({"status": "Model created and trained"}), 200)
 
